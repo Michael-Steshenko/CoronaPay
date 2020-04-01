@@ -1,4 +1,4 @@
-function CreateQRPayCode(sum, email) {
+function CreateQRPayCode(sum, email, currencyCode) {
 
     var qrcode = new QRCode("test", {
         width: 200,
@@ -10,10 +10,8 @@ function CreateQRPayCode(sum, email) {
 
     qrcode.makeCode(CreatePayPalLink(sum, email, currencyCode));
 
-    function CreatePayPalLink(sum, email) {
+    function CreatePayPalLink(sum, email, currencyCode) {
         return ("https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=" +
             email + "&amount=" + sum + "&currency_code=" + currencyCode + "&item_name=test");
     }
 }
-
-
